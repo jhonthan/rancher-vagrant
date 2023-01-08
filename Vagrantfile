@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", path: "bootstrap.sh"
 
-  # Kubernetes Master Server
+  # Kubernetes Web Server
   config.vm.define "web" do |node|
   
     node.vm.box               = VAGRANT_BOX

@@ -16,21 +16,25 @@ In this lab, we will create a small test environment with one control plane / et
 
 ### 🚀 Process
 
-1. Após a configuração das ferramentas solicitadas, iniciamos com o comando ```terraform apply``` no diretório raiz do projeto. Confirme caso solicite a criação de um recurso EC2.
+1. Create the Vagrantfile on root folder.
 
-2. Após o terraform criar a infraestrutura, ele chamará localmente (local-exec) o ansible para instalar o docker e suas dependencias no EC2 provisionado.
+2. Create the bootstrap.sh on root folder, that have the instructions no install the dependencies on nodes.
 
-3. Após instalar o docker, ele irá transferir (file) um script bash de configuração do swarm e o arquivo do compose com os detalhes do container.
+3. Create the bootstrap_web.sh on root folder, that have the instructions no install the Rancher on node Web.
 
-4. Após a transferência, será executado o script bash, que irá subir o mysql e wordpress.
+4. After the installed the Docker and Rancher up, you will available to use the Rancher on the navigator, in this case https://192.168.56.100
 
-5. Dentro poucos minutos desde o comando (terraform apply) o wordpress já estará disponível para acesso pela internet!
+![Screenshot](Rancher-web.png)
+
+5. Run the command on node web to receive the password bootstrap to Rancher ``docker logs  container-id  2>&1 | grep "Bootstrap Password:"``
+
+6. Now you will can create the cluster on Rancher using the custom options to create cluster using RKE1/RKE2/k3s.
+
+7. Copy the command on Registration and put on the correspondent nodes:
+
+![Screenshot](Rancher-registration.png)
+
+8. With this, your Cluster will be available to run your projects on Kubernetes (k8s) ;)
+
 
 ---
-
-### 🐛 Bug
-
-* As vezes pode ocorrer de não se executar a tarefa do ansible, por causa do _provisioner local-exec/remote-exec_. Uma parte da documentação do terraform diz que estes _provisioners_ devem ser utilizados como último recurso e explica o por que de o host ficar "unreacheble" em alguns casos: "Note that even though the resource will be fully created when the provisioner is run, there is no guarantee that it will be in an operable state - for example system services such as sshd may not be started yet on compute resources.". Como é um laboratório, eu executo novamente o terraform que recria o EC2 e executa novamente.
-
----
-
