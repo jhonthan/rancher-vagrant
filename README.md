@@ -24,7 +24,9 @@ In this lab, we will create a small test environment with one control plane / et
 
 4. After the installed the Docker and Rancher up, you will available to use the Rancher on the navigator, in this case https://192.168.56.100
 
+
 ![Screenshot](Rancher-web.png)
+
 
 5. Run the command on node web to receive the password bootstrap to Rancher ``docker logs  container-id  2>&1 | grep "Bootstrap Password:"``
 
@@ -32,7 +34,9 @@ In this lab, we will create a small test environment with one control plane / et
 
 7. Copy the command on Registration and put on the correspondent nodes:
 
+
 ![Screenshot](Rancher-registration.png)
+
 
 8. With this, your Cluster will be available to run your projects on Kubernetes (k8s) ;)
 
