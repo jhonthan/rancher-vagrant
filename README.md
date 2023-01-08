@@ -38,7 +38,7 @@ In this lab, we will create a small test environment with one control plane / et
 ![Screenshot](Rancher-registration.png)
 
 
-8. With this, your Cluster will be available to run your projects on Kubernetes (k8s) ;)
+8. With this, your Cluster will be available to run your projects on Kubernetes (k8s) 😁
 
 
 ---
